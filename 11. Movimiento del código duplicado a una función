@@ -1,0 +1,16 @@
+fun main() {
+    println(forecast("Ankara",27, 31,82))
+
+    println(forecast("Tokyo",32, 36,10))
+
+    println(forecast("Cape Town",59,64,2))
+    
+    println(forecast("Guatemala City", 50,55,7))
+}
+fun forecast(
+    city:String, 
+    lowTemperature:Int, 
+    highTemperature:Int, 
+    chanceOfRain:Int): String{
+    return("City: $city\nLow temperature: $lowTemperature, High temperature: $highTemperature\nChance of rain: $chanceOfRain%\n")
+}
