@@ -1,3 +1,5 @@
+import cv2
+import time
 from picamera2 import MappedArray, Picamera2, Preview
 model_yolov5 = torch.hub.load('yolov5', 'custom', path='yolov5m_Objects365.onnx', source='local', force_reload=False)
 model_yolov5.conf = 0.3  # NMS confidence threshold
