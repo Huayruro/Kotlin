@@ -1,0 +1,25 @@
+# Import necessary libraries
+import cv2
+import torch
+# Load YOLO model
+model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
+# Initialize the camera
+cap = cv2.VideoCapture(0)
+while True:
+    # Read a frame from the camera
+    ret, frame = cap.read()
+    
+    # If we can't read the frame, break the loop
+    if not ret:
+        break
+        
+    # Convert the frame to RGB (OpenCV uses BGR by default)
+    rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    # Get the detections from YOLO model
+    results = model(rgb_frame)
+    # Loop through all detected objects and draw boxes
+    for result in results.xyxy[0]:
+        print(result)
+        
+# Release the camera
+cap.release()
