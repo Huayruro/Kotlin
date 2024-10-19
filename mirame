@@ -1,0 +1,32 @@
+from picamera2 import MappedArray, Picamera2, Preview
+model_yolov5 = torch.hub.load('yolov5', 'custom', path='yolov5m_Objects365.onnx', source='local', force_reload=False)
+model_yolov5.conf = 0.3  # NMS confidence threshold
+
+camera = Picamera2(tuning="/usr/share/libcamera/ipa/rpi/vc4/imx477_noir.json")#tuning="/usr/share/libcamera/ipa/rpi/vc4/ov5647_noir.json"
+preview_config = camera.create_still_configuration(main={"size": (720, 1280),"format": "RGB888"}) #1080, 1920
+camera.configure(preview_config)
+camera.start()
+
+def yolov5_work(frame):
+    start_time = time.time()
+    # Inference
+    results = model_yolov5(frame, size=640)  # includes NMS
+    #results.print()    
+    r=results.pandas().xyxy[0]
+    if r.empty==True: 
+        return
+    r=set(r['name'].to_string(index=False).split('\n'))
+    
+    for i in r:
+        print(i.strip())
+        
+    print("--- %s seconds ---" % (time.time() - start_time))
+    
+def yolov5_cap(): 
+        np_array = camera.capture_array()
+        np_array = cv2.resize(np_array, dsize=(640, 640), interpolation=cv2.INTER_CUBIC)
+        np_array = cv2.flip(cv2.transpose(np_array),0)
+        yolov5_work(np_array)
+
+while True:
+    yolov5_cap()
