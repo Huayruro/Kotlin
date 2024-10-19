@@ -1,0 +1,43 @@
+yolov5
+
+
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install python3-pip python3-virtualenv
+mkdir project
+cd Project
+virtualenv test --system-site-packages
+source test/bin/activate
+git clone https://github.com/ultralytics/yolov5  # clone
+cd yolov5
+pip install -r requirements.txt 
+sudo apt-get install python3-opencv
+
+
+  correr cámara
+
+
+ apt-get dist-upgrade 
+apt-get upgrade
+
+ python3 -m venv --system-site-packages new_env
+
+source new_env/bin/activate
+
+sudo apt-get install -y libpcap-dev python3-libcamera
+
+ sudo python3 -m pip install --upgrade pip
+
+
+ pip install picamera2
+
+sudo apt-get install -y python3-opencv
+
+pip3 install ultralytics
+pip uninstall torch
+pip install torch==1.8.0
+pip uninstall torchvision
+pip install torchvision==0.15.1
+sudo reboot
+sudo apt-get update
