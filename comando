@@ -1,7 +1,12 @@
 yolov5
 
+libcamera-vid -n -t 0 --width 1280 --height 960 --framerate 1 --inline --listen -o tcp://127.0.0.1:8888
+cd ~/yolov5
+python3 detect.py --source=tcp://127.0.0.1:8888
 
 
+
+-----------------------
 sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install python3-pip python3-virtualenv
