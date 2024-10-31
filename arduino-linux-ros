@@ -1,0 +1,13 @@
+https://maker.pro/arduino/tutorial/how-to-use-arduino-with-robot-operating-system-ros
+
+sudo apt-get install ros-noetic-rosserial
+sudo apt-get install ros-noetic-rosserial-arduino
+
+
+Start the ROS Master - roscore
+Run rosserial client on the machine - rosrun rosserial_python serial_node.py /dev/tty<USB# or ACM#>
+The serial port is determined at run time for either ttyUSB or ttyACM. The exact port number can be found from the Arduino IDE or using dmesg | grep tty.
+Read published data returning if the button is pressed on the Arduino board or not - rostopic echo button_press
+Publish data to toggle the LED connected on the Arduino - rostopic pub toggle_led std_msgs/UInt16 "data: 0" The data is “0” to switch off the LED and “1” to switch on the LED.
+
+Use multiple terminal tabs to execute instructions and observe the response in the same screen
