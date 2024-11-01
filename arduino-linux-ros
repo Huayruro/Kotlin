@@ -27,13 +27,19 @@ c. Abra las opciones de la herramienta, seleccione la placa de desarrollo corres
 d. Abra las opciones del archivo, seleccione Ejemplo-> 01.Basics-> Blink
 e. Compilación y carga de parpadeo, si no hay error, y las pequeñas luces del flash de la placa Arduino, demuestra que la instalación de IDE es exitosa.
 
-
 . Install the ros_lib package in the IDE.
 
 a. The easiest way to install the package is from the Arduino IDE itself. Navigate to Sketch > Include Library > Manage Library in the IDE and search for rosserial package
+Buscar ros/msg.h
+Change -> #include <cstring> to #include <string.h>
+Change -> std::memcpy() to memcpy()
+Abra el archivo-> Ejemplo-> ros_lib-> helloworld,
 
 
 Start the ROS Master - roscore
+
+rosrun rosserial_python serial_node.py /dev/ttyUSB0
+
 Run rosserial client on the machine - rosrun rosserial_python serial_node.py /dev/tty<USB# or ACM#>
 The serial port is determined at run time for either ttyUSB or ttyACM. The exact port number can be found from the Arduino IDE or using dmesg | grep tty.
 Read published data returning if the button is pressed on the Arduino board or not - rostopic echo button_press
