@@ -1,16 +1,37 @@
 https://maker.pro/arduino/tutorial/how-to-use-arduino-with-robot-operating-system-ros
+https://programmerclick.com/article/49684057763/ <--
+
+
+
+----------------------
 
 sudo apt-get install ros-noetic-rosserial
 sudo apt-get install ros-noetic-rosserial-arduino
 
-https://docs.arduino.cc/software/ide-v1/tutorials/Linux/
+Linux
+To install the Arduino IDE 2 on Linux, first download the AppImage 64 bits (X86-64) from the Arduino Software page.
+https://www.arduino.cc/en/software
+Before we can launch the editor, we need to first make it an executable file. This is done by:
 
-https://www.arduino.cc/en/Main/Software
+right-click the file,
+choose Properties,
+select Permissions tab,
+tick the Allow executing file as program box.
 
-Open the arduino-1.x.x folder just created by the extraction process and spot the install.sh file. Right click on it and choose Run in Terminal from the contextual menu. The installation process will quickly end and you should find a new icon on your desktop.
+a. Poner la placa de desarrollo de Arduino USB a la computadora
 
-If you don't find the option to run the script from the contextual menu, you have to open a Terminal window and move into the arduino-1.x.x root directory and run the following command:
-sudo sh install.sh
+b. Ingrese a Arduino en la terminal para abrir el IDE
+
+c. Abra las opciones de la herramienta, seleccione la placa de desarrollo correspondiente y el puerto serie de comunicación
+
+d. Abra las opciones del archivo, seleccione Ejemplo-> 01.Basics-> Blink
+e. Compilación y carga de parpadeo, si no hay error, y las pequeñas luces del flash de la placa Arduino, demuestra que la instalación de IDE es exitosa.
+
+
+. Install the ros_lib package in the IDE.
+
+a. The easiest way to install the package is from the Arduino IDE itself. Navigate to Sketch > Include Library > Manage Library in the IDE and search for rosserial package
+
 
 Start the ROS Master - roscore
 Run rosserial client on the machine - rosrun rosserial_python serial_node.py /dev/tty<USB# or ACM#>
