@@ -46,3 +46,12 @@ Read published data returning if the button is pressed on the Arduino board or n
 Publish data to toggle the LED connected on the Arduino - rostopic pub toggle_led std_msgs/UInt16 "data: 0" The data is “0” to switch off the LED and “1” to switch on the LED.
 
 Use multiple terminal tabs to execute instructions and observe the response in the same screen
+
+
+
+-------------
+partes del brazo meshes
+
+https://github.com/Huayruro/servoarm_description
+
+
