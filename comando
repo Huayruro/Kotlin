@@ -4,7 +4,25 @@ libcamera-vid -n -t 0 --width 1280 --height 960 --framerate 1 --inline --listen 
 cd ~/yolov5
 python3 detect.py --source=tcp://127.0.0.1:8888
 
+--------------
 
+
+train
+https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb#scrollTo=7CiOxApC_k49
+
+
+seguir tutoru¿ial 
+https://www.youtube.com/watch?v=GRtgLlwxpc4
+exportaer onxx
+
+python export.py --weights yolov5s.pt --include torchscript onnx
+
+
+descarbgar
+
+yolov5s.onnx 
+
+subir a mlodelo
 
 -----------------------
 sudo apt-get update
