@@ -3,7 +3,7 @@ yolov5
 libcamera-vid -n -t 0 --width 1280 --height 960 --framerate 1 --inline --listen -o tcp://127.0.0.1:8888
 cd ~/yolov5
 python3 detect.py --source=tcp://127.0.0.1:8888
-
+python3 detect.py --weights best.onnx --img 640 --conf 0.1 --source 0
 --------------
 
 
